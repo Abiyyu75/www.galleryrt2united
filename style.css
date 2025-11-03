@@ -12,11 +12,6 @@
     --glass-bg: rgba(255, 255, 255, 0.15);
     --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     --apple-red: #EF476F; /* Warna Apel Khas Malang */
-    
-    /* Warna Khas FC Mobile */
-    --pitch-green: #38761D; /* Hijau Lapangan */
-    --ovr-gold: #FFC000; /* Emas untuk Rating */
-    --player-label: #333; /* Label Pemain */
 }
 
 * {
@@ -41,7 +36,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Pattern SVG */
+    /* Pattern SVG (Garis gunung/diagonal) */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff10' d='M40 0l-5 10l-10 10l5 10l10 10l-5 10l10 10l-5 10l10 10l-5 10h50l-10-10l5-10l-10-10l5-10l-10-10l5-10l-10-10l5-10L60 0z'/%3E%3C/svg%3E");
     opacity: 0.1;
     z-index: -1;
@@ -76,19 +71,25 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Penampung untuk Logo dan Navigasi */
 .header-content {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between; /* Menjauhkan logo dan nav */
     align-items: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
+/* Gaya untuk Logo SMPIP Baitul Maal di Header */
 .logo img {
-    height: 40px; 
+    height: 40px; /* Atur ketinggian logo */
     width: auto;
     border-radius: 5px; 
     transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
 }
 
 nav ul {
@@ -125,8 +126,9 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
+/* Dekorasi Khas Malang di Hero (Apel Kiri, Gunung Kanan) */
 #overview::before {
-    content: '🍎'; 
+    content: '🍎'; /* Ikon Apel */
     position: absolute;
     top: 50%;
     left: 5%;
@@ -137,7 +139,7 @@ nav ul li a:hover {
 }
 
 #overview::after {
-    content: '⛰️'; 
+    content: '⛰️'; /* Ikon Gunung */
     position: absolute;
     bottom: 10%;
     right: 5%;
@@ -154,6 +156,12 @@ nav ul li a:hover {
     z-index: 2;
 }
 
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px var(--primary-color);
+}
+
 .hero-content h2 {
     font-size: 1.5em;
     font-weight: 400;
@@ -162,33 +170,39 @@ nav ul li a:hover {
 
 /* GAYA UNTUK LOGO DI POJOK HERO SECTION */
 .hero-corner-logo {
-    position: absolute;
-    top: 50px; 
-    width: 100px; 
+    position: absolute; /* Kunci untuk menempatkan di pojok */
+    top: 50px; /* Jarak dari atas */
+    width: 100px; /* Ukuran logo di pojok */
     height: 100px;
     object-fit: contain;
     padding: 5px;
-    z-index: 50;
+    z-index: 50; /* Pastikan logo berada di atas konten lain */
+    
+    /* Efek Glassmorphism agar terlihat modern dan menyatu dengan background */
     backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.1); 
     border: 2px solid var(--accent-color);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    border-radius: 50%; /* Bulatkan logo default (Baitul Maal) */
     transition: all 0.5s ease;
 }
 
+/* Penempatan untuk Logo KIRI */
 .hero-corner-logo.left-corner {
     left: 50px; 
     border-radius: 50%;
 }
 
+/* Penempatan untuk Logo KANAN */
 .hero-corner-logo.right-corner {
     right: 50px;
-    border-radius: 10px;
+    border-radius: 10px; /* Logo RT 002 United berbentuk persegi/perisai */
 }
 
 .hero-corner-logo:hover {
     transform: scale(1.1) rotate(5deg);
 }
+
 
 .badge-date {
     display: inline-block;
@@ -202,9 +216,9 @@ nav ul li a:hover {
 
 /* TOMBOL AKSI BARU */
 .action-button {
-    display: inline-flex;
+    display: inline-flex; /* Menggunakan flexbox untuk mengatur ikon dan teks */
     align-items: center;
-    background-color: var(--apple-red);
+    background-color: var(--apple-red); /* Merah Apel/Aksen */ 
     color: white;
     padding: 10px 25px;
     border-radius: 5px;
@@ -215,11 +229,15 @@ nav ul li a:hover {
     box-shadow: 0 4px 10px rgba(239, 71, 111, 0.4);
     border: none;
     cursor: pointer;
-    gap: 8px;
+    gap: 8px; /* Jarak antara ikon dan teks */
+}
+
+.action-button i {
+    font-size: 1.2em;
 }
 
 .action-button:hover {
-    background-color: #D6375F;
+    background-color: #D6375F; /* Merah yang lebih gelap saat hover */ 
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(239, 71, 111, 0.6);
 }
@@ -299,10 +317,19 @@ nav ul li a:hover {
     transition: transform 0.5s ease;
 }
 
+.lokasi-card:hover i {
+    transform: rotateY(360deg);
+}
+
 .lokasi-card h4 {
     font-size: 1.4em;
     color: var(--text-dark);
     margin-bottom: 10px;
+}
+
+.lokasi-card p {
+    font-size: 0.9em;
+    color: #6c757d;
 }
 
 /* TIMELINE */
@@ -313,7 +340,7 @@ nav ul li a:hover {
     position: relative;
 }
 
-/* Garis Tengah Vertikal */
+/* Garis Tengah Vertikal (Didekorasi) */
 #timeline .container::before {
     content: '';
     position: absolute;
@@ -383,7 +410,36 @@ nav ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
-/* PESERTA (Struktur Formal) */
+.timeline-content:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.timeline-content h4 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.timeline-content ul li {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.timeline-content ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: 700;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* PESERTA */
 #peserta {
     padding: 80px 0;
     background: var(--bg-light);
@@ -396,13 +452,15 @@ nav ul li a:hover {
 
 /* GAYA UNTUK LOGO RT 002 UNITED DI BAGIAN PESERTA */
 .peserta-section-logo {
-    display: block; 
-    margin: 0 auto 40px auto; 
-    width: 150px; 
+    display: block; /* Agar bisa di-margin auto */
+    margin: 0 auto 40px auto; /* Tengah horizontal, beri jarak bawah */
+    width: 150px; /* Ukuran yang ideal */
     height: auto;
     object-fit: contain;
+    
+    /* Styling sederhana untuk menonjolkan */
     border: 3px solid var(--apple-red);
-    border-radius: 50%;
+    border-radius: 50%; /* Membuat efek lingkaran di sekeliling logo */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
@@ -410,6 +468,7 @@ nav ul li a:hover {
 .peserta-section-logo:hover {
     transform: scale(1.05);
 }
+
 
 .peserta-grid {
     display: grid;
@@ -420,7 +479,7 @@ nav ul li a:hover {
 .peserta-card {
     background-color: white;
     border-radius: 15px;
-    padding: 10px;
+    padding: 10px; /* Padding dikurangi karena gambar sudah ada frame */
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -451,7 +510,7 @@ nav ul li a:hover {
 .dokumentasi .role { background-color: #14A44D; }
 .operator .role { background-color: #6A057F; }
 
-/* GAYA UNTUK GAMBAR KARTU (Non-Lingkaran) */
+/* GAYA UNTUK GAMBAR KARTU (TIDAK BOLEH LINGKARAN) */
 .peserta-card img {
     width: 100%; 
     height: auto; 
@@ -463,197 +522,70 @@ nav ul li a:hover {
     transition: all 0.5s ease;
 }
 
-/* ================================================= */
-/* GAYA BARU: FC MOBILE LINEUP SECTION */
-/* ================================================= */
-
-#lineup-fc {
-    padding: 80px 0;
-    background: var(--text-dark); 
-    color: var(--text-light);
-    text-align: center;
+.peserta-card:hover img {
+    transform: scale(1.02);
 }
 
-.fc-subtitle {
+.peserta-card h4 {
     font-size: 1.2em;
-    font-weight: 400;
-    color: var(--accent-color);
-    margin-top: -30px;
-    margin-bottom: 50px;
-}
-
-.pitch {
-    position: relative;
-    width: 90%;
-    max-width: 900px;
-    height: 700px;
-    margin: 0 auto;
-    background-color: #559955; 
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 5px solid #fff;
-    overflow: hidden;
-}
-
-/* Garis Lapangan */
-.pitch-grass::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: white; 
-    transform: translateY(-50%);
-}
-
-.pitch-grass::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    border: 2px solid white;
-    border-radius: 50%; 
-    transform: translate(-50%, -50%);
-}
-
-.pitch-grass {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    /* Striped effect */
-    background-image: repeating-linear-gradient(
-        to bottom,
-        #559955,
-        #559955 10%,
-        #6B9C6B 10%,
-        #6B9C6B 20%
-    );
-}
-
-/* POSISI PEMAIN */
-.position-group {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ATACCKERS (3-4-3 Diamond) */
-.attackers { top: 10%; }
-.attackers .lw { position: absolute; left: 15%; }
-.attackers .st { position: absolute; top: 0; }
-.attackers .rw { position: absolute; right: 15%; }
-
-/* MIDFIELDERS (3-4-3 Diamond) */
-.midfielders { top: 35%; }
-.midfielders .lm { position: absolute; left: 5%; }
-.midfielders .cdm { position: absolute; }
-.midfielders .cm { position: absolute; left: 25%; } 
-.midfielders .rm { position: absolute; right: 5%; }
-
-/* DEFENDERS (3-4-3 Diamond) */
-.defenders { top: 70%; }
-.defenders .lcb { position: absolute; left: 20%; }
-.defenders .cb-sweeper { position: absolute; top: 0; }
-.defenders .rcb { position: absolute; right: 20%; }
-
-/* GAYA KARTU PEMAIN (BUBBLE) */
-.player-bubble {
-    width: 100px;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 10;
-}
-
-.player-bubble:hover {
-    transform: scale(1.1);
-}
-
-.player-bubble img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--player-label);
-    margin-top: 15px;
-}
-
-/* OVR (Rating) - Di Atas Gambar */
-.ovr-text {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--ovr-gold);
     color: var(--text-dark);
-    font-weight: 900;
-    font-size: 1.1em;
-    padding: 2px 8px;
-    border-radius: 15px;
-    border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    z-index: 11;
+    margin-bottom: 5px;
 }
 
-.icon-ovr {
-    background-color: #8C52FF; /* Warna Ungu ICON */
-    color: white;
-}
-
-/* Posisi Label */
-.player-pos {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    background-color: var(--player-label);
-    color: white;
-    padding: 1px 5px;
-    font-size: 0.7em;
-    font-weight: 700;
-    border-radius: 3px;
-}
-
-/* Nama Pemain - Di Bawah Bubble */
-.player-name {
-    position: absolute;
-    bottom: -20px;
+.peserta-card p {
     font-size: 0.9em;
-    font-weight: 600;
-    color: var(--text-light);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 2px 5px;
-    border-radius: 5px;
+    color: #6c757d;
 }
-
-.fc-legend {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
 
 /* GALERI & REFLEKSI */
 #galeri, #refleksi {
     padding: 80px 0;
+}
+
+#galeri {
+    background-color: var(--primary-color);
+}
+
+#galeri .galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.galeri-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.galeri-item img:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+#refleksi {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+#refleksi .section-title {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+.refleksi-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.refleksi-content h3 {
+    color: var(--primary-color);
+    margin-top: 20px;
 }
 
 /* FOOTER */
@@ -681,6 +613,10 @@ footer {
     }
     nav ul {
         gap: 15px;
+    }
+    #overview::before, #overview::after {
+        font-size: 3em;
+        opacity: 0.5;
     }
     
     /* Penyesuaian Logo Pojok pada Layar Kecil */
@@ -713,7 +649,11 @@ footer {
         text-align: left;
     }
     .timeline-content { margin-top: 10px; }
-    
+    .timeline-item:nth-child(even) .timeline-date::after,
+    .timeline-date::after {
+        left: 10px;
+        right: auto;
+    }
     .stats {
         flex-direction: column;
         margin-top: -40px;
@@ -723,30 +663,4 @@ footer {
         width: 90%;
         margin: 0 auto;
     }
-    
-    /* FC Lineup Responsif */
-    .pitch {
-        height: 600px;
-        width: 100%;
-    }
-    .player-bubble {
-        width: 70px;
-        height: 70px;
-    }
-    .player-bubble img {
-        width: 50px;
-        height: 50px;
-    }
-    .player-name {
-        font-size: 0.7em;
-    }
-    .ovr-text {
-        font-size: 0.9em;
-        top: -5px;
-    }
-
-    /* Penyesuaian Posisi di Layar Kecil */
-    .attackers { top: 5%; }
-    .midfielders { top: 30%; }
-    .defenders { top: 60%; }
 }

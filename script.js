@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalDestinasi = 8;
 
     // Panggil fungsi counter saat DOM dimuat
+    // Counter berjalan selama 1.5 detik (1500ms)
     animateCounter('stat-hari', totalHari, 1500);
     animateCounter('stat-anggota', totalAnggota, 1500);
     animateCounter('stat-destinasi', totalDestinasi, 1500);
@@ -48,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        // Memicu ketika 10% dari elemen terlihat
+        // threshold 0.1 berarti 10% dari elemen harus terlihat sebelum memicu
         threshold: 0.1
     });
 
     // Pilih semua elemen yang ingin diberi efek animasi
-    document.querySelectorAll('.lokasi-card, .peserta-card, .timeline-content, .refleksi-content, .stat-card, .galeri-item, .player-bubble').forEach(card => {
+    document.querySelectorAll('.lokasi-card, .peserta-card, .timeline-content, .refleksi-content, .stat-card, .galeri-item').forEach(card => {
         // Set kondisi awal (tersembunyi dan sedikit turun)
         card.style.opacity = '0';
         card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
