@@ -1,483 +1,59 @@
-/* ================================================= */
-/* style.css: STYLING WEBSITE BERTEMA MALANG & GLASSMORFISM */
-/* ================================================= */
+// =================================================
+// script.js: ANIMASI COUNTER & SCROLL EFFECTS
+// =================================================
 
-:root {
-    --primary-color: #0077B6; /* Biru Laut/Malang */
-    --secondary-color: #00B4D8; /* Biru Muda */
-    --accent-color: #90E0EF; /* Cyan */
-    --text-dark: #03045E;
-    --text-light: #F0F4F8;
-    --bg-light: #F8F9FA;
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    --apple-red: #EF476F; /* Warna Apel Khas Malang */
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. FUNGSI ANIMASI COUNTER STATISTIK
     
-    /* Warna Khas FC Mobile */
-    --pitch-green: #38761D; /* Hijau Lapangan */
-    --ovr-gold: #FFC000; /* Emas untuk Rating */
-    --player-label: #333; /* Label Pemain */
-}
+    function animateCounter(id, endValue, duration) {
+        const element = document.getElementById(id);
+        let start = 0;
+        const stepTime = Math.abs(Math.floor(duration / endValue)); 
 
-* {
-    margin: 
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: linear-gradient(135deg, #48cae4, #0077B6, #023e8a); /* Gradient Biru Pegunungan */
-    color: var(--text-dark);
-    scroll-behavior: smooth;
-    position: relative; 
-}
-
-/* Dekorasi Body */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff10' d='M40 0l-5 10l-10 10l5 10l10 10l-5 10l10 10l-5 10l10 10l-5 10h50l-10-10l5-10l-10-10l5-10l-10-10l5-10l-10-10l5-10L60 0z'/%3E%3C/svg%3E");
-    opacity: 0.1;
-    z-index: -1;
-}
-
-/* UTILITIES (Tidak ada perubahan di sini) */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: 700;
-    color: var(--text-light);
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    padding-top: 20px;
-}
-
-/* HEADER & NAVIGATION (Tidak ada perubahan di sini) */
-header {
-    background: rgba(0, 31, 63, 0.7);
-    color: var(--text-light);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.logo img {
-    height: 40px; 
-    width: auto;
-    border-radius: 5px; 
-    transition: transform 0.3s ease;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-nav ul li a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 5px 10px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-nav ul li a:hover {
-    color: var(--accent-color);
-}
-
-/* HERO SECTION (Tidak ada perubahan di sini) */
-#overview {
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?malang-mountain-landscape');
-    background-size: cover;
-    background-position: center;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--text-light);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Dekorasi Khas Malang di Hero */
-#overview::before {
-    content: '🍎'; 
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    font-size: 6em;
-    opacity: 0.8;
-    transform: translateY(-50%) rotate(-15deg);
-    z-index: 1;
-}
-
-#overview::after {
-    content: '⛰️'; 
-    position: absolute;
-    bottom: 10%;
-    right: 5%;
-    font-size: 8em;
-    opacity: 0.8;
-    z-index: 1;
-}
-
-.hero-content {
-    padding: 30px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-    z-index: 2;
-}
-
-.hero-corner-logo {
-    position: absolute;
-    top: 50px;
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    padding: 5px;
-    z-index: 50; 
-    backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.1); 
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-    transition: all 0.5s ease;
-}
-
-.hero-corner-logo.left-corner {
-    left: 50px; 
-    border-radius: 50%;
-}
-
-.hero-corner-logo.right-corner {
-    right: 50px;
-    border-radius: 10px;
-}
-
-.badge-date {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: 700;
-    box-shadow: 0 4px var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.action-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--apple-red);
-    color: white;
-    padding: 10px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 5px; 
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(239, 71, 111, 0.4);
-    border: none;
-    cursor: pointer;
-    gap: 8px;
-}
-
-
-/* STATS (Tidak ada perubahan di sini) */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: -80px;
-    position: relative;
-    z-index: 10;
-}
-
-.stat-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 20px 30px;
-    text-align: center;
-    color: var(--text-light);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.4);
-    width: 30%;
-    transition: transform 0.3s ease;
-}
-
-/* LOKASI KUNJUNGAN (Tidak ada perubahan di sini) */
-#lokasi {
-    padding: 80px 0;
-    background: var(--bg-light);
-}
-
-/* TIMELINE (Tidak ada perubahan di sini) */
-#timeline {
-    padding: 80px 0;
-    background: var(--primary-color);
-    color: var(--text-light);
-    position: relative;
-}
-
-/* PESERTA (Tidak ada perubahan di sini) */
-#peserta {
-    padding: 80px 0;
-    background: var(--bg-light);
-}
-
-/* ================================================= */
-/* GAYA BARU: FC MOBILE LINEUP SECTION */
-/* ================================================= */
-
-#lineup-fc {
-    padding: 80px 0;
-    background: var(--text-dark); /* Background gelap untuk kontras */
-    color: var(--text-light);
-    text-align: center;
-}
-
-.fc-subtitle {
-    font-size: 1.2em;
-    font-weight: 400;
-    color: var(--accent-color);
-    margin-top: -30px;
-    margin-bottom: 50px;
-}
-
-.pitch {
-    position: relative;
-    width: 90%;
-    max-width: 900px;
-    height: 700px; /* Ketinggian lapangan */
-    margin: 0 auto;
-    background-color: #559955; /* Warna hijau tua pitch */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 5px solid #fff;
-    overflow: hidden;
-}
-
-/* Garis Lapangan */
-.pitch-grass::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: white; /* Garis tengah */
-    transform: translateY(-50%);
-}
-
-.pitch-grass::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    border: 2px solid white;
-    border-radius: 50%; /* Lingkaran tengah */
-    transform: translate(-50%, -50%);
-}
-
-.pitch-grass {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    /* Striped effect (optional) */
-    background-image: repeating-linear-gradient(
-        to bottom,
-        #559955,
-        #559955 10%,
-        #6B9C6B 10%,
-        #6B9C6B 20%
-    );
-}
-
-/* POSISI PEMAIN */
-.position-group {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ATACCKERS (Lini Paling Depan) */
-.attackers { top: 10%; }
-.attackers .lw { position: absolute; left: 15%; }
-.attackers .st { position: absolute; top: 0; }
-.attackers .rw { position: absolute; right: 15%; }
-
-/* MIDFIELDERS */
-.midfielders { top: 35%; }
-.midfielders .lm { position: absolute; left: 5%; }
-.midfielders .cdm { position: absolute; }
-.midfielders .cm { position: absolute; left: 25%; } /* Offset Lengan Kiri CDM */
-.midfielders .rm { position: absolute; right: 5%; }
-
-/* DEFENDERS (Lini Paling Belakang) */
-.defenders { top: 70%; }
-.defenders .lcb { position: absolute; left: 20%; }
-.defenders .cb-sweeper { position: absolute; top: 0; }
-.defenders .rcb { position: absolute; right: 20%; }
-
-/* GAYA KARTU PEMAIN (BUBBLE) */
-.player-bubble {
-    width: 100px;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 10;
-}
-
-.player-bubble:hover {
-    transform: scale(1.1);
-}
-
-.player-bubble img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--player-label);
-    margin-top: 15px; /* Dorong ke bawah sedikit untuk OVR */
-}
-
-/* OVR (Rating) - Di Atas Gambar */
-.ovr-text {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--ovr-gold);
-    color: var(--text-dark);
-    font-weight: 900;
-    font-size: 1.1em;
-    padding: 2px 8px;
-    border-radius: 15px;
-    border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    z-index: 11;
-}
-
-.icon-ovr {
-    background-color: #8C52FF; /* Warna Ungu ICON */
-    color: white;
-}
-
-/* Posisi Label */
-.player-pos {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    background-color: var(--player-label);
-    color: white;
-    padding: 1px 5px;
-    font-size: 0.7em;
-    font-weight: 700;
-    border-radius: 3px;
-}
-
-/* Nama Pemain - Di Bawah Bubble */
-.player-name {
-    position: absolute;
-    bottom: -20px;
-    font-size: 0.9em;
-    font-weight: 600;
-    color: var(--text-light);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 2px 5px;
-    border-radius: 5px;
-}
-
-.fc-legend {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
-
-/* GALERI & REFLEKSI (Tidak ada perubahan di sini) */
-#galeri, #refleksi {
-    padding: 80px 0;
-}
-
-/* FOOTER (Tidak ada perubahan di sini) */
-footer {
-    background-color: var(--text-dark);
-    color: var(--text-light);
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
-/* MEDIA QUERIES */
-@media (max-width: 768px) {
-    /* (Styling responsif yang ada sebelumnya) */
-
-    /* FC Lineup Responsif */
-    .pitch {
-        height: 600px;
-        width: 100%;
-    }
-    .player-bubble {
-        width: 70px;
-        height: 70px;
-    }
-    .player-bubble img {
-        width: 50px;
-        height: 50px;
-    }
-    .player-name {
-        font-size: 0.7em;
-    }
-    .ovr-text {
-        font-size: 0.9em;
-        top: -5px;
+        const timer = setInterval(() => {
+            start += 1;
+            element.textContent = start;
+            if (start === endValue) {
+                clearInterval(timer);
+            }
+        }, stepTime);
     }
 
-    /* Penyesuaian Posisi di Layar Kecil */
-    .attackers { top: 5%; }
-    .midfielders { top: 30%; }
-    .defenders { top: 60%; }
-}
+    const totalHari = 5;
+    const totalAnggota = 10;
+    const totalDestinasi = 8;
+
+    animateCounter('stat-hari', totalHari, 1500);
+    animateCounter('stat-anggota', totalAnggota, 1500);
+    animateCounter('stat-destinasi', totalDestinasi, 1500);
+
+
+    // 2. LOGIKA EFEK SCROLL (Fade-in/Slide-up menggunakan Intersection Observer)
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Tambahkan kelas 'visible' jika elemen muncul di viewport
+                entry.target.classList.add('visible');
+                // Berhenti mengamati setelah elemen terlihat
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        // Memicu ketika 10% dari elemen terlihat
+        threshold: 0.1 
+    });
+
+    // Pilih semua elemen yang ingin diberi efek animasi
+    // Ditambahkan .player-bubble agar kartu pemain juga memiliki efek animasi
+    document.querySelectorAll('.lokasi-card, .peserta-card, .timeline-content, .refleksi-content, .stat-card, .galeri-item, .player-bubble').forEach(card => {
+        // Set kondisi awal (tersembunyi dan sedikit turun)
+        card.style.opacity = '0';
+        card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        card.style.transform = 'translateY(20px)';
+        
+        // Mulai mengamati elemen
+        observer.observe(card);
+    });
+});
