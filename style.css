@@ -82,7 +82,7 @@ header {
 
 /* Gaya untuk Logo SMPIP Baitul Maal di Header */
 .logo img {
-    height: 40px; /* Atur ketinggian logo */
+    height: 60px; /* Atur ketinggian logo */
     width: auto;
     border-radius: 5px; 
     transition: transform 0.3s ease;
@@ -172,8 +172,8 @@ nav ul li a:hover {
 .hero-corner-logo {
     position: absolute; /* Kunci untuk menempatkan di pojok */
     top: 50px; /* Jarak dari atas */
-    width: 100px; /* Ukuran logo di pojok */
-    height: 100px;
+    width: 150px; /* Ukuran logo di pojok */
+    height: 150px;
     object-fit: contain;
     padding: 5px;
     z-index: 50; /* Pastikan logo berada di atas konten lain */
@@ -663,4 +663,5 @@ footer {
         width: 90%;
         margin: 0 auto;
     }
+
 }
