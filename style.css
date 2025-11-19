@@ -665,3 +665,11 @@ footer {
     }
 
 }
+nav {
+height: 70px;
+}
+
+section:first-of-type {
+margin-top: 80px;
+}
+
