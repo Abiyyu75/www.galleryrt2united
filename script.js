@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Panggil fungsi counter saat DOM dimuat
     // Counter berjalan selama 1.5 detik (1500ms)
-    animateCounter('stat-hari', totalHari, 1500);
-    animateCounter('stat-anggota', totalAnggota, 1500);
-    animateCounter('stat-destinasi', totalDestinasi, 1500);
+    document.getElementById('stat-hari').textContent = totalHari;
+    document.getElementById('stat-anggota').textContent = totalAnggota;
+    document.getElementById('stat-destinasi').textContent = totalDestinasi;
 
 
     // 2. LOGIKA EFEK SCROLL (Fade-in/Slide-up menggunakan Intersection Observer)
@@ -65,3 +65,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
