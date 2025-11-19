@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Pilih semua elemen yang ingin diberi efek animasi
-    document.querySelectorAll('.lokasi-card, .peserta-card, .timeline-content, .refleksi-content, .stat-card, .galeri-item').forEach(card => {
+    document.querySelectorAll('.lokasi-card, .peserta-card, .timeline-content, .refleksi-content, .galeri-item')
         // Set kondisi awal (tersembunyi dan sedikit turun)
         card.style.opacity = '0';
         card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
@@ -63,4 +63,5 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mulai mengamati elemen
         observer.observe(card);
     });
+
 });
