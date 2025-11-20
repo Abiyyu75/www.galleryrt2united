@@ -1,335 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokumentasi Ekspedisi | RT 002 United</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <link rel="stylesheet" href="style.css"> 
-    
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dokumentasi Ekspedisi Malang</title>
 
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+
+    <!-- ================= HEADER ================= -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="logo-baitul-maal.png" alt="Logo SMPIP Baitul Maal"> 
-            </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#timeline">Timeline</a></li>
-                    <li><a href="#lokasi">Lokasi</a></li>
-                    <li><a href="#peserta">Peserta</a></li>
-                    <li><a href="#refleksi">Refleksi</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Ekspedisi Malang</h1>
+        <button id="theme-toggle">🌙</button>
     </header>
 
-    <section id="overview">
-        
-        <img 
-            src="logo-baitul-maal.png" 
-            alt="Logo SMPIP Baitul Maal" 
-            class="hero-corner-logo left-corner"
-        >
 
-        <img 
-            src="Logo Kelompok RT 02 United.jpg" 
-            alt="Logo Kelompok RT 002 United" 
-            class="hero-corner-logo right-corner"
-        >
-        
-        <div class="hero-content">
-            
-            <h2>DOKUMENTASI EKSPEDISI MALANG</h2>
-            <h2>KELOMPOK RT 002 UNITED, KELAS 9 SMPIP BAITUL MAAL</h2>
-            <div class="badge-date">10 - 14 NOVEMBER 2025</div>
-            
-            <a href="https://docs.google.com/document/d/1AnGFSg3tQl3Wc8lYljcnSnB9_ujhH68Q/view" target="_blank" class="action-button">
-                <i class='bx bxs-file-doc'></i> Lihat Proposal Lengkap
-            </a>
-            
-        </div>
+    <!-- ================= HERO ================= -->
+    <section class="hero fade-element">
+        <h2>Petualangan Tak Terlupakan di Malang</h2>
+        <p>Mendokumentasikan perjalanan penuh warna dan cerita.</p>
     </section>
 
-    <div class="container stats">
+
+    <!-- ================= STATISTIK ================= -->
+    <section class="stats fade-element">
         <div class="stat-card">
-            <h3><span id="stat-hari">5</span> Hari</h3>
-            <p>Durasi Ekspedisi</p>
+            <h3 id="stat-hari">0</h3>
+            <p>Total Hari</p>
         </div>
         <div class="stat-card">
-            <h3><span id="stat-anggota">10</span> Anggota</h3>
-            <p>Guru Fasilitator & Siswa RT 002</p>
+            <h3 id="stat-anggota">0</h3>
+            <p>Total Anggota</p>
         </div>
         <div class="stat-card">
-            <h3><span id="stat-destinasi">8</span>+ Lokasi</h3>
-            <p>Edukasi, Budaya, & Pengabdian</p>
+            <h3 id="stat-destinasi">0</h3>
+            <p>Total Destinasi</p>
         </div>
-    </div>
+    </section>
 
-    <section id="lokasi" class="lokasi">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--primary-color); text-shadow: none;">🗺️ Destinasi Kunci & Nilai Edukasi</h2>
-            <div class="lokasi-grid">
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-institution'></i>
-                    <h4>SMPIP Baitul Maal</h4>
-                    <p>Titik kumpul awal. Mengajarkan Disiplin dan Kebersamaan tim.</p>
-                </div>
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-train'></i>
-                    <img src="StasiunPasarSenen.wedp" class="lokasi-image">
-                    <h4>Stasiun Senen & Malang Kota Baru</h4>
-                    <p>Titik Keberangkatan. Melatih Tanggung Jawab dan Kesabaran dalam mobilitas.</p>
-                </div>
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-paint'></i>
-                    <img src="Kampung Warna-Warni.wedp" class="lokasi-image">
-                    <h4>Kampung Warna-Warni Jodipan</h4>
-                    <p>Simbol perubahan sosial melalui seni. Nilai: Kreativitas dan Kolaborasi.</p>
-                </div>
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-castle'></i>
-                    <img src="Museum Brawijaya.jpeg" class="lokasi-image">
-                    <h4>Museum Brawijaya</h4>
-                    <p>Mengabadikan perjuangan TNI. Nilai: Patriotisme, Perjuangan.</p>
-                </div>
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-bus'></i>
-                    <h4>Museum Angkut</h4>
-                    <p>Perkembangan alat transportasi. Nilai: Perkembangan Teknologi.</p>
-                </div>
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-tree'></i>
-                    <h4>Perkebunan Apel</h4>
-                    <p>Wisata agro. Nilai: Pertanian Berkelanjutan dan menghargai hasil kerja petani.</p>
-                </div>
-                
-                <div class="lokasi-card">
-                    <i class='bx bxs-home-heart'></i>
-                    <h4>Desa Pujon Lor</h4>
-                    <p>Pusat kegiatan Pengabdian Masyarakat. Nilai: Empati, Komunikasi, dan Gotong Royong.</p>
-                </div>
-                
+
+    <!-- ================= DESTINASI ================= -->
+    <section class="container">
+        <h2 class="section-title fade-element">Destinasi Malang</h2>
+
+        <div class="grid-destinasi">
+            <div class="destinasi-card fade-element">
+                <h3>Kampung Warna-Warni</h3>
+                <p>Ikon Malang yang penuh warna dan keceriaan.</p>
+            </div>
+
+            <div class="destinasi-card fade-element">
+                <h3>Museum Brawijaya</h3>
+                <p>Peninggalan sejarah dan koleksi penting perjuangan.</p>
+            </div>
+
+            <div class="destinasi-card fade-element">
+                <h3>Desa Pujon Lor</h3>
+                <p>Suasana desa yang sejuk dengan pegunungan hijau.</p>
+            </div>
+
+            <div class="destinasi-card fade-element">
+                <h3>Museum Angkut</h3>
+                <p>Museum transportasi terbesar di Indonesia.</p>
             </div>
         </div>
     </section>
 
-    <section id="timeline">
-        <div class="container">
-            <h2 class="section-title">📅 Rundown Kegiatan (10 - 14 November 2025)</h2>
 
-            <div class="timeline-item">
-                <div class="timeline-date"><h3>10 November</h3></div>
-                <div class="timeline-content">
-                    <h4>Pelepasan & Keberangkatan</h4>
-                    <ul>
-                        <li>Pelepasan Ekspedisi.</li>
-                        <li>Keberangkatan stasiun Senen - Malang.</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- ================= SCRIPT ================= -->
+    <script src="script.js"></script>
 
-            <div class="timeline-item">
-                <div class="timeline-date"><h3>11 November</h3></div>
-                <div class="timeline-content">
-                    <h4>Sejarah & Awal Pengabdian Desa</h4>
-                    <ul>
-                        <li>Explorasi Museum Brawijaya.</li>
-                        <li>Explorasi Kampung Warna Warni & Tridi.</li>
-                        <li>Pembukaan di Balai Desa & Sapa Masyarakat.</li>
-                        <li>Games dan Edukasi anak-anak TPA.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date"><h3>12 November</h3></div>
-                <div class="timeline-content">
-                    <h4>Penyuluhan & Interaksi</h4>
-                    <ul>
-                        <li>Penyuluhan 7+1 Kebiasaan Anak Indonesia Hebat.</li>
-                        <li>Observasi dan sharing profesi community.</li>
-                        <li>BPJS (Bersih-bersih perkampungan jadi sehat).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date"><h3>13 November</h3></div>
-                <div class="timeline-content">
-                    <h4>Eksplorasi & Perjalanan Pulang</h4>
-                    <ul>
-                        <li>Closing Desa.</li>
-                        <li>Explorasi perkebunan apel & Museum Angkut.</li>
-                        <li>Museum Angkut Malang.</li>
-                        <li>Perjalanan pulang ke Jakarta (Stasiun Malang – Senen).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date"><h3>14 November</h3></div>
-                <div class="timeline-content">
-                    <h4>Kepulangan</h4>
-                    <ul>
-                        <li>Tiba di SMP Islam Plus Baitul Maal.</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="peserta">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--primary-color); text-shadow: none;">🧑‍🤝‍🧑 Susunan Kepanitiaan RT 002 United</h2>
-            
-            <img 
-                src="Logo Kelompok RT 02 United.jpg" 
-                alt="Logo RT 002 United" 
-                class="peserta-section-logo"
-            >
-            
-            <div class="peserta-grid">
-
-                <div class="peserta-card fasilitator">
-                    <span class="role">Guru Fasilitator</span>
-                    <img src="1.png" alt="Foto Guru Fasilitator">
-                    <h4>Pak Reza Sa'adi, S.Pd</h4>
-                    <p>Pembimbing & Koordinator Umum</p>
-                </div>
-
-                <div class="peserta-card ketua">
-                    <span class="role">Ketua RT 002</span>
-                    <img src="10.png" alt="Foto Muhammad Kenzie Narendra">
-                    <h4>Muhammad Kenzie Narendra</h4>
-                    <p>MC (Master of Ceremony) & Juru Bicara</p>
-                </div>
-
-                <div class="peserta-card mc">
-                    <span class="role">MC</span>
-                    <img src="5.png" alt="Foto Muhammad Alfrazi Wijaya">
-                    <h4>Muhammad Alfrazi Wijaya</h4>
-                    <p>MC (Master of Ceremony)</p>
-                </div>
-                
-                <div class="peserta-card perkap">
-                    <span class="role">Perkap (Perlengkapan)</span>
-                    <img src="2.png" alt="Foto Ghaisan Aulia Hakim Adrimasyah">
-                    <h4>Ghaisan Aulia Hakim Adrimasyah</h4>
-                    <p>Koordinator Perlengkapan</p>
-                </div>
-                
-                <div class="peserta-card perkap">
-                    <span class="role">Perkap (Perlengkapan)</span>
-                    <img src="6.png" alt="Foto Nadhif Bazily Arham">
-                    <h4>Nadhif Bazily Arham</h4>
-                    <p>Koordinator Perlengkapan</p>
-                </div>
-                
-                <div class="peserta-card icebreaking">
-                    <span class="role">Ice Breaking</span>
-                    <img src="7.png" alt="Foto Mohamad Tsani Akbar">
-                    <h4>Mohamad Tsani Akbar</h4>
-                    <p>Koordinator Ice Breaking & Konsumsi</p>
-                </div>
-                
-                <div class="peserta-card games">
-                    <span class="role">Games</span>
-                    <img src="3.png" alt="Foto Fakhry Zhafran Khairi">
-                    <h4>Fakhry Zhafran Khairi</h4>
-                    <p>Koordinator Games & Keamanan</p>
-                </div>
-                
-                <div class="peserta-card games">
-                    <span class="role">Games</span>
-                    <img src="8.png" alt="Foto Gibran Hady Wibowo">
-                    <h4>Gibran Hady Wibowo</h4>
-                    <p>Koordinator Games & Acara</p>
-                </div>
-                
-                <div class="peserta-card dokumentasi">
-                    <span class="role">Dokumentasi</span>
-                    <img src="4.png" alt="Foto Abiyyu Nawwaf Almujaddid">
-                    <h4>Abiyyu Nawwaf Almujaddid</h4>
-                    <p>Koordinator Dokumentasi & Fotografi</p>
-                </div>
-
-                <div class="peserta-card icebreaking">
-                    <span class="role">Ice Breaking</span>
-                    <img src="9.png" alt="Foto Utbah Syamil Rabbani">
-                    <h4>Utbah Syamil Rabbani</h4>
-                    <p>Koordinator Ice Breaking</p>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="galeri" style="background-color: var(--primary-color);">
-        <div class="container">
-            <h2 class="section-title">📸 Galeri Dokumentasi Proyek</h2>
-            <div class="galeri-grid">
-                
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?malang-mountain" alt="Pemandangan Gunung di Malang"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?malang-apple-farm" alt="Perkebunan Apel Malang"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?malang-city-square" alt="Alun-Alun Kota Malang"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?malang-street-art" alt="Seni Jalanan Malang"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?group-activity" alt="Foto Grup Kegiatan Ekspedisi"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?teamwork-kids" alt="Kegiatan Edukasi Anak-anak"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?hiking-trail-malang" alt="Foto Saat Pendakian atau Trekking"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?volunteering-cleanup" alt="Aksi Bersih-bersih (BPJS)"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?transportation-museum" alt="Foto Museum Angkut/Transportasi"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?museum-brawijaya" alt="Foto Ikon Museum Brawijaya"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?malang-traditional-food" alt="Kuliner Khas Malang"></div>
-                <div class="galeri-item"><img src="https://source.unsplash.com/400x300/?malang-sunset" alt="Pemandangan Matahari Terbenam di Malang"></div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="refleksi">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--primary-color); text-shadow: none;">💡 Refleksi dan Tujuan Proyek</h2>
-            <div class="refleksi-content">
-                <h3>A. Latar Belakang Proyek</h3>
-                <p>Ekspedisi ini mengusung tema **"Interaksi"** dan subtema **"Kreasi"**, dengan fokus pada topik **"Olahraga"** (Kesehatan dan Gerak). Tujuan utamanya adalah menumbuhkan kemampuan siswa dalam berinteraksi, bekerja sama, meningkatkan kesadaran kesehatan, dan mengembangkan kreativitas melalui aktivitas fisik di lingkungan Desa Pujon Lor.</p>
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="https://docs.google.com/document/d/1IqViok1kHIzB7dYpIpoS0QHkh2tBup3h/edit" target="_blank" class="action-button">
-                        <i class='bx bxs-file-doc'></i> Buka Dokumen Proposal Lengkap
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Dokumentasi Proyek Ekspedisi Malang. Kelompok RT 002 United, Kelas 9 SMPIP Baitul Maal.</p>
-            <p>Dibangun dengan semangat Interaksi & Kreasi.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script> 
 </body>
-
 </html>
-
-
-
-
-
