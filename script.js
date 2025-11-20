@@ -1,10 +1,26 @@
-// =================================================
-// script.js: ANIMASI COUNTER & SCROLL EFFECTS
-// =================================================
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener('DOMContentLoaded', () => {
+    // =======================================================
+    // 1. MODE TERANG / GELAP
+    // =======================================================
 
-    // 1. FUNGSI ANIMASI COUNTER STATISTIK
+    const toggleBtn = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        body.classList.toggle("light");
+
+        // Mengubah ikon tombol
+        toggleBtn.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+
+
+
+    // =======================================================
+    // 2. ANIMASI COUNTER
+    // =======================================================
+
     function animateCounter(id, endValue, duration) {
         const element = document.getElementById(id);
         let start = 0;
@@ -12,43 +28,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const stepTime = Math.abs(Math.floor(duration / endValue));
 
         const timer = setInterval(() => {
-            start += 1;
+            start++;
             element.textContent = start;
-            if (start === endValue) {
-                clearInterval(timer);
-            }
+            if (start === endValue) clearInterval(timer);
         }, stepTime);
     }
 
-    const totalHari = 5;
-    const totalAnggota = 10;
-    const totalDestinasi = 8;
-
-    document.getElementById('stat-hari').textContent = totalHari;
-    document.getElementById('stat-anggota').textContent = totalAnggota;
-    document.getElementById('stat-destinasi').textContent = totalDestinasi;
+    animateCounter("stat-hari", 5, 1400);
+    animateCounter("stat-anggota", 10, 1400);
+    animateCounter("stat-destinasi", 8, 1400);
 
 
-    // 2. LOGIKA EFEK SCROLL (Fade-in / Slide-up)
+
+    // =======================================================
+    // 3. ANIMASI SCROLL (FADE-IN)
+    // =======================================================
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add("visible");
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.15 });
 
-    // Tambahkan kondisi awal ke semua elemen yang ingin dianimasikan
-    document.querySelectorAll('.lokasi-card, .peserta-card, .timeline-content, .refleksi-content, .galeri-item')
-        .forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-
-            observer.observe(card);
-        });
+    document.querySelectorAll(".fade-element")
+        .forEach(el => observer.observe(el));
 
 });
