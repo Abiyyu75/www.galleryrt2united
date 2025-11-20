@@ -10,11 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.addEventListener("click", () => {
         body.classList.toggle("dark");
         body.classList.toggle("light");
-
-        // Mengubah ikon tombol
         toggleBtn.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
     });
-
 
 
     // =======================================================
@@ -24,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function animateCounter(id, endValue, duration) {
         const element = document.getElementById(id);
         let start = 0;
-
         const stepTime = Math.abs(Math.floor(duration / endValue));
 
         const timer = setInterval(() => {
@@ -34,14 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }, stepTime);
     }
 
-    animateCounter("stat-hari", 5, 1400);
-    animateCounter("stat-anggota", 10, 1400);
-    animateCounter("stat-destinasi", 8, 1400);
+    animateCounter("stat-hari", 5, 1500);
+    animateCounter("stat-anggota", 10, 1500);
+    animateCounter("stat-destinasi", 8, 1500);
 
 
 
     // =======================================================
-    // 3. ANIMASI SCROLL (FADE-IN)
+    // 3. ANIMASI FADE-IN SCROLL (versi lebih halus)
     // =======================================================
 
     const observer = new IntersectionObserver((entries) => {
@@ -51,7 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, {
+        threshold: 0.12
+    });
 
     document.querySelectorAll(".fade-element")
         .forEach(el => observer.observe(el));
