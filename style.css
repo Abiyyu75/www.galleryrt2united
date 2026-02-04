@@ -538,39 +538,68 @@ nav ul li a:hover {
 }
 
 /* GALERI & REFLEKSI */
-/* GALERI & REFLEKSI - FIXED OVERFLOW */
+
+/* ================================================= */
+/* PERBAIKAN TOTAL GALERI (ANTI-OVERFLOW)            */
+/* ================================================= */
+
 #galeri {
-    padding: 80px 0;
+    padding: 60px 0;
     background-color: var(--primary-color);
-    overflow: hidden; /* Mencegah konten keluar jalur */
+    width: 100%;
+    overflow: hidden; /* Mengunci agar tidak ada yang keluar jalur */
+}
+
+#galeri .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Memberi ruang aman di sisi layar */
+    box-sizing: border-box;
 }
 
 #galeri .galeri-grid {
     display: grid;
-    /* Menggunakan 1fr agar kolom fleksibel dan tidak memaksa lebar pixel tetap */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    /* Menggunakan auto-fill agar gambar mengisi ruang yang tersedia tanpa memaksa lebar */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
     gap: 15px;
-    width: 100%; /* Memastikan grid tidak lebih lebar dari kontainer */
+    width: 100%;
 }
 
 .galeri-item {
     width: 100%;
-    overflow: hidden; /* Memastikan jika ada efek hover, gambar tidak keluar box */
-    border-radius: 10px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden; /* Memastikan gambar tidak meluap saat di-zoom */
 }
 
 .galeri-item img {
-    display: block; /* Menghilangkan gap extra di bawah gambar */
-    width: 100%;    /* Gambar akan selalu mengikuti lebar kolom grid */
-    height: 150px;  /* Tinggi tetap agar rapi */
-    max-width: 100%; /* Kunci agar tidak meluap ke kanan */
+    display: block;
+    width: 100%;    /* Mengikuti lebar kolom grid */
+    height: 140px;  /* Ukuran lebih kecil sesuai permintaan */
     object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .galeri-item img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+}
+
+/* KHUSUS MOBILE (PERBAIKAN KRITIS) */
+@media (max-width: 480px) {
+    #galeri .galeri-grid {
+        /* Paksa 2 kolom agar tidak ada gambar yang mencoba melebar sendiri */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+    
+    #galeri .container {
+        padding: 0 10px; /* Perkecil padding di HP agar gambar punya ruang */
+    }
+
+    .galeri-item img {
+        height: 120px; /* Lebih kecil lagi untuk layar mungil */
+    }
 }
 
 #refleksi {
@@ -679,6 +708,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
