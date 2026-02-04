@@ -538,33 +538,39 @@ nav ul li a:hover {
 }
 
 /* GALERI & REFLEKSI */
-#galeri, #refleksi {
-    padding: 80px 0;
-}
-
+/* GALERI & REFLEKSI - FIXED OVERFLOW */
 #galeri {
+    padding: 80px 0;
     background-color: var(--primary-color);
+    overflow: hidden; /* Mencegah konten keluar jalur */
 }
 
-/* Mengubah minmax dari 250px ke 180px agar kolom lebih kecil dan banyak */
 #galeri .galeri-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-    gap: 15px; /* Jarak antar gambar dipersempit sedikit */
+    /* Menggunakan 1fr agar kolom fleksibel dan tidak memaksa lebar pixel tetap */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px;
+    width: 100%; /* Memastikan grid tidak lebih lebar dari kontainer */
+}
+
+.galeri-item {
+    width: 100%;
+    overflow: hidden; /* Memastikan jika ada efek hover, gambar tidak keluar box */
+    border-radius: 10px;
 }
 
 .galeri-item img {
-    width: 100%;
-    height: 150px; /* Ukuran tinggi dikurangi dari 200px ke 150px */
+    display: block; /* Menghilangkan gap extra di bawah gambar */
+    width: 100%;    /* Gambar akan selalu mengikuti lebar kolom grid */
+    height: 150px;  /* Tinggi tetap agar rapi */
+    max-width: 100%; /* Kunci agar tidak meluap ke kanan */
     object-fit: cover;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .galeri-item img:hover {
-    transform: scale(1.05); /* Sedikit lebih besar saat hover agar tetap jelas */
-    cursor: pointer;
+    transform: scale(1.05);
 }
 
 #refleksi {
@@ -673,6 +679,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
