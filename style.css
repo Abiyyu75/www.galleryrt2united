@@ -538,45 +538,54 @@ nav ul li a:hover {
 }
 
 /* GALERI & REFLEKSI */
-/* 1. Kunci kontainer utama agar tidak ada bocor ke kanan sama sekali */
+/* ================================================= */
+/* RESET TOTAL GALERI: FOTO UTUH & TIDAK BOCOR       */
+/* ================================================= */
+
 #galeri {
     padding: 60px 0 !important;
-    background-color: var(--primary-color) !important;
     width: 100% !important;
     max-width: 100vw !important;
-    overflow-x: hidden !important; /* Kunci mati agar tidak bisa geser kanan */
+    overflow-x: hidden !important; /* Mencegah geser kanan */
 }
 
-/* 2. Atur grid agar fleksibel tapi tidak memaksa lebar */
-#galeri .galeri-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-    gap: 15px !important;
+/* Pastikan container tidak menambah lebar */
+#galeri .container {
+    width: 100% !important;
+    max-width: 1200px !important;
     padding: 0 15px !important;
-    width: 100% !important;
+    margin: 0 auto !important;
 }
 
-/* 3. Atur item galeri */
+#galeri .galeri-grid {
+    display: flex !important; /* Berubah ke Flex agar lebih terkontrol */
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+}
+
 .galeri-item {
-    width: 100% !important;
-    overflow: hidden !important;
+    /* Atur lebar kolom: di desktop 30%, di tablet 45%, di HP 100% */
+    flex: 1 1 300px !important; 
+    max-width: 100% !important;
+    height: auto !important; /* Memastikan box mengikuti tinggi foto */
 }
 
-/* 4. ATURAN GAMBAR UTUH (Paling Penting) */
 .galeri-item img {
-    width: 100% !important;      /* Lebar penuh mengikuti kolom */
-    height: auto !important;     /* TINGGI OTOMATIS: Supaya TIDAK TERPOTONG */
-    max-height: none !important; /* Hapus semua batasan tinggi */
-    object-fit: contain !important; /* Tampilkan seluruh isi foto */
-    display: block !important;
+    /* RESET SEMUA ATURAN YANG MUNGKIN BIKIN TERPOTONG */
+    width: 100% !important;
+    height: auto !important;      /* INI KUNCINYA: Biarkan tinggi sesuai foto asli */
+    min-height: 0 !important;     /* Hapus batas minimum */
+    max-height: none !important;  /* Hapus batas maksimum */
+    object-fit: unset !important;  /* Kembalikan ke setelan pabrik: TIDAK DIPOTONG */
     border-radius: 10px !important;
-    transform: none !important;   /* Matikan animasi jika dicurigai bikin bocor */
+    display: block !important;
 }
 
-/* 5. KHUSUS MOBILE */
+/* Perbaikan untuk HP */
 @media (max-width: 480px) {
-    #galeri .galeri-grid {
-        grid-template-columns: 1fr !important; /* Satu kolom di HP biar foto besar & utuh */
+    .galeri-item {
+        flex: 1 1 100% !important; /* Satu foto per baris di HP agar besar & utuh */
     }
 }
 }
@@ -686,6 +695,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
