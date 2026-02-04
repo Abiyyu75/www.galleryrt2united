@@ -172,8 +172,8 @@ nav ul li a:hover {
 .hero-corner-logo {
     position: absolute; /* Kunci untuk menempatkan di pojok */
     top: 50px; /* Jarak dari atas */
-    width: 150px; /* Ukuran logo di pojok */
-    height: 150px;
+    width: 200px; /* Ukuran logo di pojok */
+    height: 200px;
     object-fit: contain;
     padding: 5px;
     z-index: 50; /* Pastikan logo berada di atas konten lain */
@@ -673,6 +673,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
