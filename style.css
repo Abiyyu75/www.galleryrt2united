@@ -576,10 +576,9 @@ nav ul li a:hover {
 .galeri-item img {
     display: block;
     width: 100%;
-    height: 180px; /* Tingkatkan sedikit agar ruang potong lebih sedikit */
-    object-fit: cover;
-    object-position: center; /* Memastikan bagian tengah foto selalu terlihat */
-    transition: transform 0.3s ease;
+    height: 150px; 
+    object-fit: contain; /* Seluruh gambar akan terlihat tanpa terpotong */
+    background-color: rgba(0, 0, 0, 0.1); /* Memberi warna latar pada ruang kosong */
 }
 
 .galeri-item img:hover {
@@ -709,6 +708,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
