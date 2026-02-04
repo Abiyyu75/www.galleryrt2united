@@ -574,13 +574,11 @@ nav ul li a:hover {
 }
 
 .galeri-item img {
-    display: block;
     width: 100%;
-    height: 150px; 
-    object-fit: contain; /* Seluruh gambar akan terlihat tanpa terpotong */
-    background-color: rgba(0, 0, 0, 0.1); /* Memberi warna latar pada ruang kosong */
+    aspect-ratio: 4 / 3; /* Mengatur tinggi otomatis berdasarkan lebar (4:3) */
+    object-fit: cover;
+    border-radius: 10px;
 }
-
 .galeri-item img:hover {
     transform: scale(1.1);
 }
@@ -708,6 +706,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
