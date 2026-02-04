@@ -575,9 +575,10 @@ nav ul li a:hover {
 
 .galeri-item img {
     display: block;
-    width: 100%;    /* Mengikuti lebar kolom grid */
-    height: 140px;  /* Ukuran lebih kecil sesuai permintaan */
+    width: 100%;
+    height: 180px; /* Tingkatkan sedikit agar ruang potong lebih sedikit */
     object-fit: cover;
+    object-position: center; /* Memastikan bagian tengah foto selalu terlihat */
     transition: transform 0.3s ease;
 }
 
@@ -708,6 +709,7 @@ height: 70px;
 section:first-of-type {
 margin-top: 80px;
 } 
+
 
 
 
