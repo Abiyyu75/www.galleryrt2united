@@ -671,4 +671,10 @@ height: 70px;
 
 section:first-of-type {
 margin-top: 80px;
-}
+} 
+
+section:Foto-Dokumentasi {
+    left: 100px; 
+    right: 100px; 
+    height: 200px; 
+} 
